@@ -1,0 +1,94 @@
+<layout name='frame_layout'/>
+<br/>
+<div class="panel">
+	<div class="panel-heading">用户管理</div>
+	<div class="panel-body">
+		<form method="post">
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-addon"> <i class="icon-search"></i>
+					</span>
+					<input class="form-control" type="text" name="seach" value="" id="title_input" placeholder="可按标题，回车查询" autofocus></div>
+				<input style="display:none" type="submit" name="" value=""></div>
+		</form>
+		<br/>
+		<br/>
+		<br/>
+		<div class="table">
+			<table cellspacing="0" class="table table-bordered">
+				<tr id="touys">
+
+					<td>用户名</td>
+					<td>作者</td>
+					<td>权限</td>
+					<td>ip</td>
+					<form method="post" >
+						<td>
+							<input class="btn btn-default" type="submit" name="time" value="时间▽" title='按最早排序' />
+						</td>
+					</form>
+					<td  align="center" colspan="3">操作</td>
+				</tr>
+				<foreach name="selectArticle" item="sel" >
+					<tr>
+
+						<form method="post" >
+							<td>
+								<input class="btn btn-default" type="button" value="{$sel.username}"  />
+							</td>
+						</form>
+						<form method="post" >
+							<td>
+								<input type="submit" class="btn btn-default" name="author" value="{$sel.author}" title='按作者查询' />
+							</td>
+						</form>
+						<form method="post" >
+							<td>
+								<input type="submit" name="fig" class="btn btn-default" value="{$sel.fig}" title='按权限查询' />
+							</td>
+						</form>
+						<form method="post" >
+							<td>
+								<input type="button" name="ip" class="btn btn-default" value="{$sel.ip}" />
+							</td>
+						</form>
+						<form method="post" >
+							<td>
+								<input type="submit" name="month" class="btn btn-default" value="{$sel.time}" title='按月查询' />
+							</td>
+						</form>
+
+						<td>
+
+							<a href="__CONTROLLER__/editorUser?id={$sel.id}" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+								编辑
+							</a>
+
+						</td>
+
+						<td>
+							<a href="__CONTROLLER__/delUser?id={$sel.id}" onclick="return delsure(this)"  class="btn btn-danger"><i class="icon-remove"></i>删除</a>
+						</td>
+
+					</tr>
+				</foreach>
+
+			</table>
+			<br/>
+			<a href="__CONTROLLER__/addUser" data-type="iframe" data-toggle="modal" class="btn btn-success">
+				<i class="icon-heart"></i>
+				添加用户
+			</a>
+		</div>
+		<div class="fenye">{$page}</div>
+		<br/>
+		<div id="container">
+			<div id="load"></div>
+		</div>
+		<div id="page"></div>
+		<hr />
+		<div id="ps">
+			友情提示：管理员可编辑、删除文章，可进行模糊查询如：标题、标签、内容，点击相应的标签可进行快速查询，点击标题可跳转到该文章
+		</div>
+	</div>
+</div>

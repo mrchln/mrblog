@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+A{
+	text-decoration:none;
+	color:;
+	
+}
+/*----------隐藏左下角多说链接-------------*/
+#ds-thread .ds-powered-by a { 
+font-size: 0px !important; 
+padding: 0; 
+}
+/*----------隐藏喜欢-------------*/
+#ds-reset .ds-meta,#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current{
+	display:none;
+}
+/*----------隐藏评论数，微博-------------*/
+#ds-thread #ds-reset li.ds-tab a,#ds-thread #ds-reset .ds-sort {
+	display:none;
+}
+
+.imgclose{
+	margin-top:100px; display:none; position:fixed; margin-left:20px;
+}
+div#message{width:800px;position:absolute; right:50%; margin:300px -400px 0 0; }
+div#message #title{text-align:center; padding:10px 10px 10px;color:#888 }
+div#message_box{top:50px;position:relative;background: url('../images/bg.png');}
+div#message #logo{background:url(../images/message.png); background-size:800px 400px; width:800px; height:400px;}
+div#message #logo-file{background:url(../images/file.png); background-size:800px 400px; width:800px; height:400px;}
+#logo-about{background:url(../images/about.png); background-size:800px 400px; width:800px; height:400px;}
+#logo-neighbors{background:url(../images/neighbors.png); background-size:800px 400px; width:800px; height:400px;}

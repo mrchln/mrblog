@@ -1,0 +1,23 @@
+
+<import type="css" file="css.footer" />
+<import type="css" file="css.bg"/>
+<import file="js.timeover" type="js" />
+<script type="text/javascript">
+	$("head").append("<link rel='shortcut icon' type='image/x-icon' href='http://{$webinfo['server']}/favicon.png' />");
+</script>
+<footer>
+ <div class="Footer">
+<div id="M_c">
+ <div id="timebox">
+<div id="nowTime"></div> 
+</div>
+<div id="copy">Copyright &copy;{$webinfo['time']} {$webinfo['name']} 
+<a href="http://{$webinfo['server']}">{$webinfo['server']}</a>
+{$webinfo['icp']}
+</div>
+
+</div>
+
+</div>
+</footer>
+<include file='Index:gotop'/>

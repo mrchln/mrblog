@@ -1,0 +1,44 @@
+<layout name="Mtlayout"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+	  <meta content="yes" name="apple-mobile-web-app-capable">
+	  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	  <meta name="format-detection" content="telephone=no, email=no">
+<title></title>
+<link rel="shortcut icon" href="images/title.png" />
+<import type="css" href="MT.css.message" />
+</head>
+
+<body>
+
+<div id="message">
+
+<!-- 留言内容   -->
+<div id="message_box">
+<div class="logo message"><div class="shadeDiv"></div><include file="Mt:head" /></div>    <div id="title">真挚的一句问候，我就能高兴一整天。</div>
+   
+   <!-- 多说评论框 start -->
+	<div class="ds-thread" style="min-height:600px;" data-thread-key="-123" data-title="留言板" data-url="http://{$webinfo['server']}/message"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end --> 
+
+   <include file="Mt:footer" />
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<layout name='layout'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<title>深度阅读|MrLing</title>
+<link rel="shortcut icon" href="__ROOT__/Public/images/title.png" />
+<import type='js' file='js.mrling'/>
+<link rel="stylesheet" href="kindeditor/plugins/code/shCoreDefault.css" />
+<script charset="utf-8" src="kindeditor/plugins/code/shCore.js"></script>
+<script type="text/javascript">      
+//为了在编辑器之外能展示高亮代码
+//SyntaxHighlighter.all();   
+$(function(){
+	content_div="#content-detailed";
+	bg_div="#bgDiv";
+	img_div=".big-img";
+	prev_div=".prev";
+	next_div=".next";
+	imgshow();
+	time_comment();	
+})
+	
+</script>
+</head>
+
+<body>
+
+<!--BAIDU_YUNTU_END-->
+<div class="boxcontent">
+<div id="boxcontent_box">
+			<foreach name="list" item="vo" >
+            <div id="title"><h3>{$vo.title}</h3></div>
+            <div id="zuozhe"><span class='author'>作者：{$vo.author}</span><span class='time'>发表于：{$vo.now|strtotime|date="Y-m-d",###}</span><span class='updatetime'>最后修改于：{$vo.updatetime|strtotime|date="m-d H:i:s",###}</span><span class='readed'>阅读：({$vo.readed})</span>　<a href="javascript:void()"><span class="ds-thread-count" data-thread-key="{$vo.id}" data-count-type="comments"></span></a><!-- 多说js加载开始，一个页面只需要加载一次 -->
+			<script type="text/javascript">
+			var duoshuoQuery = {short_name:"mrling"};
+			(function() {
+			    var ds = document.createElement('script');
+			    ds.type = 'text/javascript';ds.async = true;
+			    ds.src = 'http://static.duoshuo.com/embed.js';
+			    ds.charset = 'UTF-8';
+			    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+			<!-- 多说js加载结束，一个页面只需要加载一次 -->
+			<div class="hr"><hr></div>
+			</div>
+			
+			<div id="content-detailed"><p>{$vo.content}</p></div>
+            
+  			<div id="biaoqian">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tags:&nbsp&nbsp&nbsp
+  			<php>
+  			for($index=0;$index<count($tags);$index++){ 
+            $tagsa=$tagdata->where('id=%d',$tags[$index])->select();
+            echo "<a id='tag' href='__ROOT__/home/tagseach/index/tagid/".$tagsa[0]['id']."'>".($tagsa[0]['tagname'])."</a>&nbsp&nbsp&nbsp" ;
+  			}
+
+
+	  		</php>
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+			<div class="share">
+				<fieldset>
+					<legend>作者：{$vo.author}</legend>
+					本文链接：http://mrcln.com__SELF__
+				</fieldset>
+			</div>
+	  		</div>
+            
+            <foreach name="before" item="b" >
+            <div id="befor">上一篇：<a href="__ROOT__/home/<php> echo CONTROLLER_NAME </php>/detailed/id/{$b.id}">{$b.title}</a></div>
+            </foreach>
+            <foreach name="after" item="a" >
+            <div id="next">下一篇：<a href="__ROOT__/home/<php> echo CONTROLLER_NAME </php>/detailed/id/{$a.id}">{$a.title}</a></div>
+            </foreach>
+			<input id="title_hidden" name="" type="hidden" value="{$vo.title} | 深度阅读 | MrLing" />
+           
+            
+            <div id="duoshuo">
+            <!-- 多说评论框 start -->
+			<div class="ds-thread" data-thread-key="{$vo.id}" data-title="{$vo.title}" data-url="mrcln.com/home/<php> echo CONTROLLER_NAME </php>/detailed/id/{$vo.id}"></div>
+
+			<!-- 多说评论框 end -->
+			<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+			<script type="text/javascript">
+			var duoshuoQuery = {short_name:"mrling"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();
+				</script>
+			<!-- 多说公共JS代码 end -->
+			            </div>
+
+</div>
+</foreach>
+<include file='Public:footer'/>	
+</div>
+
+
+</body>
+</html>

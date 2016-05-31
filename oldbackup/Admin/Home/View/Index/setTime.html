@@ -1,0 +1,112 @@
+<layout name='frame_layout'/>
+<form method="post">
+	<div class="panel">
+		<div class="panel-heading">历程添加</div>
+		<div class="panel-body">
+
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">标题：</button>
+					</span>
+					<input type="text" class="form-control" name="til" value="{$map['title']}" placeholder="请输入标题" required></div>
+			</div>
+
+			<br/>
+			<br/>
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">时间：</button>
+					</span>
+					<input name="tim" type="text" class="form-control form-date" placeholder="选择或者输入一个日期：yyyy-MM-dd" value="{$map['time']}" required></div>
+			</div>
+			<br/>
+			<br/>
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">内容：</button>
+					</span>
+					<textarea class="form-control" name="cont" placeholder="请输入内容" required> {$map['content']}</textarea></div>
+			</div>
+			<input type="submit" name="submit" value="提交" class="btn btn-default">
+			<input type="hidden" value="{$map['id']}" name="id" />
+		</div>
+	</div>
+</form>
+
+<div id="seach">
+	<div class="panel">
+		<div class="panel-heading">历程管理</div>
+		<div class="panel-body">
+			<form method="post">
+				<div class="col-xs-3">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">查询：</button>
+						</span>
+						<input class="form-control" type="text" name="seach" value="" id="title_input" placeholder="可按标题，回车查询"></div>
+				</div>
+			</form>
+			<br>
+			<br>
+			<br>
+			<div class="table">
+				<table class="table table-bordered">
+					<tr id="touys">
+
+						<td>标题</td>
+						<td>内容</td>
+						<td>时间</td>
+						<td  align="center" colspan="3">操作</td>
+					</tr>
+					<foreach name="selectArticle" item="sel" >
+						<tr>
+
+							<td>
+								<a href="">{$sel.title}</a>
+							</td>
+							<td>
+								<a href="">{$sel.content}</a>
+							</td>
+							<td>
+								<input class="btn defualt" type="button" name="month" value="{$sel.time}" title='按月查询' />
+							</td>
+
+							<form method="post">
+								<td>
+									<a href="?eid={$sel.id}" class="btn btn-primary"> <i class="icon-edit"></i>
+										编辑
+									</a>
+								</td>
+							</form>
+							<form method="post" onsubmit="return delsure(this)">
+								<td>
+
+									<a href="?id={$sel.id}" onclick="return delsure(this)"  class="btn btn-danger"><i class="icon-remove"></i>删除</a>
+
+								</td>
+							</form>
+
+						</tr>
+					</foreach>
+
+				</table>
+				<br/>
+			</div>
+			<div class="fenye">{$page}</div>
+			<br/>
+			<div id="container">
+				<div id="load"></div>
+			</div>
+			<div id="page"></div>
+			<hr />
+			<div id="ps">
+				友情提示：管理员可编辑、删除文章，可进行模糊查询如：标题、标签、内容，点击相应的标签可进行快速查询，点击标题可跳转到该文章
+			</div>
+
+		</div>
+	</div>
+</div>
+<input style="display:none" type="submit" name="" value="">

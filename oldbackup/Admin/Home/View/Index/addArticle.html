@@ -1,0 +1,118 @@
+<layout name='frame_layout'/>
+<script type="text/javascript" src="__ROOT__/Public/js/jquery-1.3.2.js"></script>
+<link rel="stylesheet" type="text/css"  href ="__ROOT__/Public/kindeditor/themes/default/default.css"/>
+<link rel="stylesheet" href="__ROOT__/Public/kindeditor/plugins/code/shCoreDefault.css" />
+<script charset="utf-8" src="__ROOT__/Public/kindeditor/plugins/code/shCore.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/kindeditor/kindeditor.js"></script>
+ <!-- 加载编辑器的容器 -->
+    
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="__ROOT__/Public/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__ROOT__/Public/utf8-php/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+<script>
+	//SyntaxHighlighter.all();
+		KindEditor.ready(function(K) {
+			 editor = K.create('textarea[name="content1"]', {
+				
+				uploadJson : '__ROOT__/Public/kindeditor/php/upload_json.php',
+				fileManagerJson : '__ROOT__/Public/kindeditor/php/file_manager_json.php',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+				}
+			});
+			SyntaxHighlighter.all();
+		});
+	$(document).ready(function(){
+		var selectstr = $("input[name=selector]").val();
+		$('select[name=class]').get(0).selectedIndex=0;
+            $("select[name=class] option").each(function(i,n){
+                if($(n).text()==selectstr)
+                {
+                    $(n).attr("selected",true);
+                }
+            })
+    var str = $("input[name=tagselect]").val();
+    $(str.split(",")).each(function (i,dom){
+        $(":checkbox[value='"+dom+"']").prop("checked",true);
+        $(":checkbox[id='"+dom+"']").prop("checked",true);
+    });
+  })
+	</script>
+<form name="" method="post">
+	<div id="editor">
+		<br/>
+		<div class="panel">
+			<div class="panel-heading">标题：</div>
+			<div class="panel-body">
+				<div class="col-xs-3">
+					<input type="text" class="form-control" name="til" value="{$arr['title']}" id="title_input" placeholder="文章的标题" autofocus required></div>
+			</div>
+		</div>
+		<br />
+		<div class="panel">
+			<div class="panel-heading">请选择所属板块：</div>
+			<div class="panel-body">
+				<div class="col-xs-3">
+					<input type="hidden" name="selector" id="" value="{$arr['editorClassify']}" />
+					<select class="form-control" name='class'>
+						<foreach name="class" item="clas" >
+							<option value="{$clas.ename}" >{$clas.classify}</option>
+						</foreach>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<br/>
+		<div class="panel">
+			<div class="panel-heading">请选择标签：</div>
+			<div class="panel-body">
+				<input type="hidden" name="tagselect" value="{$arr['tagSelect']}">
+				<foreach name="tag" item="tag" >
+					<div class="tag">
+						<input type="checkbox" name="tagid[]" value="{$tag.id}" id="{$tag.id}">
+						<label class="label label-badge label-info" for="{$tag.id}">{$tag.tagname}</label>
+					</div>
+				</foreach>
+				<br/>
+				<br/>
+
+			</div>
+			<div class="panel-footer">
+				<div style="font-size:12px">
+					如果没有你想要的标签，
+					<a href='__CONTROLLER__/setTag.html' target="editor">请点击这里</a>
+				</div>
+			</div>
+
+		</div>
+		<br />
+		<script id="container" name="content1" type="text/plain" style="width:715px;height:400px;">
+        {$arr['content']}
+    	</script>
+		<!--<textarea id="editor_id" name="content1" style="width:715px;height:400px;visibility:hidden;">{$arr['content']}</textarea>-->
+		<br />
+		<input name="time" type="hidden"/>
+		<input id="tijiao" type="submit" name="submit" value="提交内容"  class="btn btn-primary" />
+		<input id="gengxin" type="hidden" name="id" value="{$arr['id']}"  class="button gray" />
+		<input id="chongzhi" type="reset" name="button" value="重置内容" class="btn btn-default"  />
+		<div id="content_div"></div>
+		<div id="ps">{$infoshow[0]['content']}</div>
+	</P>
+</div>
+</form>

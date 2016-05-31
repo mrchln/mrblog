@@ -1,0 +1,41 @@
+<layout name='layout'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<title>留言|MrLing</title>
+<link rel="shortcut icon" href="images/title.png" />
+
+</head>
+
+<body>
+
+<div id="message">
+<!-- 留言内容   -->
+<div id="message_box">
+<div id="logo"></div>
+    <div id="title">真挚的一句问候，我就能高兴一整天。</div>
+   
+   <!-- 多说评论框 start -->
+	<div class="ds-thread" style="min-height:600px; margin-top:50px;" data-thread-key="-123" data-title="留言板" data-url="http://{$HTTP_HOST}/message"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end --> 
+
+
+ </div>
+  <include file="Public:footer" />
+ </div>
+</body>
+</html>

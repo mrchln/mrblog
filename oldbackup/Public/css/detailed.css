@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.boxcontent{width:800px;position:absolute; right:50%; margin:300px -400px 0 0;  min-height:500px;border-radius:5px 5px 5px 5px }
+div.boxcontent #title{text-align:center; padding:20px 20px 20px;letter-spacing:5px; }
+div.boxcontent p{ letter-spacing:2px; line-height:2em;}
+div#biaoqian,#befor,#next{ padding:10px 25px 10px }
+div#biaoqian:before{content:"　　";background:url(../images/tags.png);background-repeat: no-repeat;height: 28px;position: absolute; }
+div#biaoqian a{font-size: 12px;color: #666;}
+div#title{color: #09F;}
+div#content-detailed{padding:10px 42px 10px !important;width:715px;overflow:hidden;font-size: 14px;}
+div#content-detailed img{max-width: 720px;max-height: 400px;cursor: pointer;transition:box-shadow 0.5s;}
+div#content-detailed img:hover{max-width: 720px;max-height: 400px;cursor: crosshair;box-shadow: 0 0 5px #888}
+div#content-detailed p{text-indent: 2.3em;}
+div#duoshuo{min-height:500px;}
+div#zuozhe span{color:#666; text-align:center;font-size: 12px;padding: 10px 20px 10px;}
+div#boxcontent_box{top:50px; position:relative;background: url('../images/bg.png');background: linear-gradient(top , rgb(255, 255, 255) 15% , rgb(248, 248, 248) 88%);
+background: -o-linear-gradient(top , rgb(255, 255, 255) 15% , rgb(248, 248, 248) 88%);
+background: -ms-linear-gradient(top , rgb(255, 255, 255) 15% , rgb(248, 248, 248) 88%);
+background: -moz-linear-gradient(top , rgb(255, 255, 255) 15% , rgb(248, 248, 248) 88%);
+background: -webkit-linear-gradient(top , rgb(255, 255, 255) 15% , rgb(248, 248, 248) 88%);
+
+}
+.bg{background:url(../images/bg.png)}
+
+div#befor a,div#next a{ color:#09F }
+div#befor a:hover,div#next a:hover{}
+div#befor{float: left;}
+div#next {float:right;}
+div#zuozhe a{color:#666}
+.hr{padding: 10px 25px 0; }
+
+div.reprint{padding: 10px 30px 10px;font-size: 12px;}
+
+div.big-img{position: fixed;z-index: 50; display: none;border-radius: 5px;}
+div.big-img img{border-radius: 5px;}
+div.prev{position: fixed;display: none;z-index: 51;color: #fff;cursor: pointer;text-shadow: 0 0 10px #666;background: #888;border-radius: 50%;text-align: center;}
+div.next{position: fixed;display: none;z-index: 51;color: #fff;cursor: pointer;text-shadow: 0 0 10px #666;background: #888;border-radius: 50%;text-align: center;}
+div.prev:hover,.next:hover{box-shadow: 0 0 5px #666}
+div.img_div img{}
+
+#bgDiv {
+	z-index: 40;
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right:0px;
+    background-color: #000;
+    filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75);
+    opacity: 0;
+}

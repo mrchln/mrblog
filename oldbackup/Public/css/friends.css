@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#lanmu_box{padding:5px 5px 5px; background:#FFF; margin-top:100px;}
+div#lanmu_box div{padding:5px 5px 5px;}
+div#lanmu_box span{padding:5px 5px 5px;box-shadow:0 0 2px #fff; color:#000}
+span.lj{}
+span.lj a{ color:#666; text-decoration:overline;padding: 10px 10px 10px;}
+span.lj a:hover{text-decoration:underline;color:#09c!important;}
+div#linju_require li{text-align:left;color:#666;padding:5px 5px 5px;}
+div.box{ padding:20px 20px 20px;}
+div.box li{font-size: 12px;}
+fieldset{border: 0px solid #cccccc;padding:10px 10px 10px; }
+legend{color:#09F }
+#ds{padding: 20px;}

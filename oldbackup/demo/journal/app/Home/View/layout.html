@@ -1,0 +1,85 @@
+<html lang="zh-CN">
+<head>
+<title>{$title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"><!-- ie兼容模式 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="__ROOT__/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/dist/css/docs.min.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/script/css/journal.css">
+
+
+  </head>
+  <!-- ... -->
+
+  <body>
+  {__CONTENT__}
+
+
+
+<script type="text/javascript" src="__ROOT__/script/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="__ROOT__/script/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="__ROOT__/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__ROOT__/dist/js/tooltip.js"></script>
+<script type="text/javascript" src="__ROOT__/dist/js/docs.min.js"></script>
+<script type="text/javascript" src="__ROOT__/script/js/jquery.pin.min.js"></script>
+<script type="text/javascript">
+//var navigation = responsiveNav("#nav");//启用响应式导航
+
+$(document).ready(function(){
+    $('.flexslider').flexslider({
+        directionNav: true,
+        pauseOnAction: false
+    });
+
+    
+})
+$(function($){
+	//顶部导航
+	var li=$("#head-nav").find("li");
+	li.each(function(){
+		//alert(li.length);
+		var str=["Bookshelf","Jread","Individual"];
+		var str2=["bookshelf","jread","individual"];
+		var url=window.location.pathname;
+				for(var i=0;i<str.length;i++){
+					if(url.indexOf(str[i])>0||url.indexOf(str2[i])>0){
+						li.eq(i).attr("class","active");
+						return;
+					}
+				}	
+	})
+	//个人中心
+	var li=$(".active-title").children("a");
+	$(".active-title").find("li").each(function(){
+
+		var str=["like","head","collection","basic","detail"];
+		var url=window.location.pathname;
+				for(var i=0;i<str.length;i++){
+					if(url.indexOf(str[i])>0){
+						li.eq(i).children("li").attr("class","active");
+						return;
+					}
+				}	
+	})
+	//
+	var li=$(".ul-book").children("a");
+	$(".ul-book").find("a").each(function(){
+
+		var str=["Individual","Mybook","Bookshelf","Account"];
+		var str2=["individual","mybook","bookshelf","account"];
+		var url=window.location.pathname;
+				for(var i=0;i<str.length;i++){
+					if(url.indexOf(str[i])>0||url.indexOf(str2[i])>0){
+						li.eq(i).children("span").attr("class","triangle-left");
+						li.eq(i).children("li").attr("class","active");
+						return;
+					}
+				}	
+	})
+})
+
+
+	</script>
+  </body>
+  </html>

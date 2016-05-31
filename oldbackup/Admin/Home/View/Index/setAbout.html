@@ -1,0 +1,114 @@
+<layout name='frame_layout'/>
+<foreach name="about" item="me" >
+<div class="guanyu">
+<div id="box_shor">
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">个性签名</div>
+	<div class="panel-body">
+	{$me.gxqm|html_entity_decode}
+<input type="hidden" value="{$me.gxqm}" name="gxqm">
+<input type="hidden" value="gxqm" name="post">
+</div>
+<a href="__CONTROLLER__/editorAbout?post=gxqm" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">个人感触</div>
+	<div class="panel-body">
+	{$me.grgc|html_entity_decode}
+<input type="hidden" value="{$me.grgc}" name="grgc">
+<input type="hidden" value="grgc" name="post">
+</div><a href="__CONTROLLER__/editorAbout?post=grgc" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">网站历程</div>
+	<div class="panel-body">
+{$me.grjl|html_entity_decode}
+<input type="hidden" value="{$me.grjl}" name="grjl">
+<input type="hidden" value="grjl" name="post">
+</div><a href="__CONTROLLER__/editorAbout?post=grjl" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">qq</div>
+	<div class="panel-body">
+{$me.qq|html_entity_decode}
+<input type="hidden" value="{$me.qq}" name="qq">
+<input type="hidden" value="qq" name="post"></div>
+<a href="__CONTROLLER__/editorAbout?post=qq" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">姓名</div>
+	<div class="panel-body">
+{$me.name|html_entity_decode}
+<input type="hidden" value="{$me.name}" name="name">
+<input type="hidden" value="name" name="post"></div>
+<a href="__CONTROLLER__/editorAbout?post=name" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">联系电话</div>
+	<div class="panel-body">
+{$me.phone|html_entity_decode}
+<input type="hidden" value="{$me.phone}" name="phone">
+<input type="hidden" value="phone" name="post"></div>
+<a href="__CONTROLLER__/editorAbout?post=phone" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</form>
+</div>
+
+<div class="box">
+<form method="post" action="__CONTROLLER__/editorAbout">
+<div class="panel">
+	<div class="panel-heading">联系地址</div>
+	<div class="panel-body">
+{$me.adress|html_entity_decode}
+<input type="hidden" value="{$me.adress}" name="adress">
+<input type="hidden" value="adress" name="post"></div>
+<a href="__CONTROLLER__/editorAbout?post=adress" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+		编辑
+	</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</foreach>

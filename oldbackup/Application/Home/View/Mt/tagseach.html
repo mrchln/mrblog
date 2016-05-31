@@ -1,0 +1,83 @@
+<layout name="Mtlayout"/>
+<import type="css" file="MT.css.detailed" />
+<body>
+	
+	<div id="nowLoation">{$locationArr['__CONTROLLER__']}</div>
+	<section>
+      <div class="calssTitle">
+          <h2>我的"{$selecttag[0]['tagname']}"</h2>
+      </div>
+      <div id="moodContent">
+      	<?php
+                $map['tag'] = array('like','%'.$tagid.'%');
+            //dump($map['tag']);
+            $n=0;
+            $m=0;
+            $arr_m=$fun->seach($mood,6,false,"now desc",$map);
+            $arr_s=$fun->seach($skill,6,false,"now desc",$map);
+            $arr_mood=$arr_m['selectArticle'];
+            $arr_skill=$arr_s['selectArticle'];
+            $page_mood=$arr_m['show'];
+            $page_skill=$arr_s['show'];
+            //dump($arr_mood);
+            //$arr_seach=$fun->seach($user,6,false,"now desc",$map);
+            if(empty($arr_mood)){
+                echo "<div class='tagresult'>没有获得任何数据……</div>";
+            }
+            for($a=0;$a<count($arr_mood);$a++){
+                $source=$arr_mood[$a]['tag'];
+                $taglist = explode(',',$source);
+                //dump($taglist);
+                
+                for($index=0;$index<count($taglist);$index++){ 
+                    
+                    if($tagid==$taglist[$index]){
+                            $n++;
+                            //dump($arr_mood[$a]['title']);
+                            echo "<a class='mt-ar-link' href='__ROOT__/mt/detailed/id/".$Easycode->encode($arr_mood[$a]['id'])."'><div class='contentIndex'>".$arr_mood[$a]['title']."";
+                            echo "<div class='info'><span class='resource'>".$arr_mood[$a]['author']."</span>";
+                            echo "  <span class='icon type1'>".date('m,d',strtotime($arr_mood[$a]['now']))."</span>";
+                            
+                            echo "</div></div></a>";
+                
+                
+                    }
+                    
+                } 
+                
+                
+            }
+            
+            if(empty($arr_skill)){
+                //echo "<div class='tagresult'>没有获得任何数据……</div>";
+            }
+            for($a=0;$a<count($arr_skill);$a++){
+                $source=$arr_skill[$a]['tag'];
+                $taglist = explode(',',$source);
+                
+                
+                for($index=0;$index<count($taglist);$index++){ 
+                    
+                    if($tagid==$taglist[$index]){
+                            $m++;
+                            //dump($arr_skill[$a]['title']);
+                            echo "<a class='mt-ar-link' href='__ROOT__/mt/detailed/id/".$arr_skill[$a]['id']."'><div class='contentIndex'>".$arr_mood[$a]['title']."";
+                            echo "<div class='info'><span class='resource'>".$arr_skill[$a]['author']."</span>";
+                            echo "  <span class='icon type1'>".date('m,d',strtotime($arr_skill[$a]['now']))."</span>";
+                            
+                            echo "</div></div></a>";
+                            }
+                    
+                }
+                
+                
+            }
+            
+
+
+                ?>
+        
+      </div>
+      </section>
+  <include file="Mt:footer" />   
+<footer class="footer fixed-bottom"></footer>

@@ -1,0 +1,29 @@
+<layout name='frame_layout'/>
+<form method="post">
+<fieldset>  
+<legend>所有模块：</legend>
+<div class="tagbox">
+<foreach name="class" item="clas" >
+	<div class="tag"><input type="radio" name="classid" value="{$clas.id}" id="{$clas.id}" /><label for="{$clas.id}">{$clas.classify}</label></div>
+</foreach>
+</div>
+<input type="submit" value="修改" name="submit" class="button gray" /> <input type="submit" value="删除" name="submit" class="button red" />
+</form>
+<form method="post">
+<fieldset>  
+<legend>添加、修改模块：</legend>
+<input type="text" value="{$classname['classify']}" name="class" /><input type="hidden" value="{$classname['id']}" name="classnameid" /> <input type="submit" value="提交" name="submit" class="button gray" /> 
+</fieldset>
+</form>
+</fieldset>
+<form method="post" action="__CONTROLLER__/addLanmu">
+<ul>
+
+	  <li>板块目录：</li>
+    <li><input name="mum" type="text" value=""></li>
+    <li>板块名称：</li>
+    <li><input name="bkm" type="text" value=""></li>
+    <li><input name="" type="submit" class="button gray" value="提交"></li>
+</li>
+</ul>
+</form>

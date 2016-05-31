@@ -1,0 +1,160 @@
+<layout name='layout'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<title>留言|MrLing</title>
+<link rel="shortcut icon" href="images/title.png" />
+<import type="css" href="css.message" />
+<import type='js' file='js.mrling'/>
+<script type="text/javascript">
+	$(function(){
+		filediv();
+		
+
+	})
+</script>
+</head>
+
+<body>
+
+<div id="message">
+<!-- 留言内容   -->
+<div id="message_box">
+<div id="logo-file"></div>
+    <div id="title">《落叶归根》实为本博客的数据归档</div>
+    <div class="file-box">
+    <div class="box-title">文章归档</div>
+    <div class="fengexian"></div>
+    <div class="all"><span class='ico'>　　</span>全部博文</div>
+    <div class="box-content">
+    <div class="nav-title"><span class='ico'>　　</span>时光荏苒</div>
+    <div class="box-year">
+	<php>
+	$fun->selectfile("mood",$mood,2014,2024,"now","desc");//数据表模型，开始年份，结束年份，时间字段，查询顺序
+	</php>
+	</div>
+	 <div class="nav-title"><span class='ico'>　　</span>一技分享</div>
+	 <div class="box-year">
+	<php>
+	$fun->selectfile("skill",$skill,2014,2024,"now","desc");
+	</php>
+	</div>
+	</div>
+	<div class="box-title">文章统计</div>
+	<div class="fengexian"></div>
+	<div class="file-all">
+		<div><strong>时光荏苒：</strong><span>共 {$moodcount} 篇文章</span></div>
+		<div><strong>一技分享：</strong><span>共 {$skillcount} 篇文章</span></div>
+		<div><strong>阅读总数：</strong><span>共 {$count} 次阅读</span></div>
+		<div><strong>所有标签：</strong></div>
+		<div class="tag">
+		<?php
+		$count=count($selecttag);
+        //dump($count);
+        
+        for($i=0;$i<$count;$i++){
+            $map['tag'] = array('like','%'.$selecttag[$i]['id'].'%');
+            //dump($selecttag[$i]['id']);
+            $n=0;
+            $m=0;
+            $arr_mood=$mood->where($map)->select();
+            $arr_skill=$skill->where($map)->select();
+        	for($a=0;$a<count($arr_mood);$a++){
+        		$source=$arr_mood[$a]['tag'];
+        		$taglist = explode(',',$source);
+        		
+        		
+        		for($index=0;$index<count($taglist);$index++){ 
+        			
+        			if($selecttag[$i]['id']==$taglist[$index]){
+							$n++;
+							//dump($arr_mood[$a]['title']);
+        			}
+        			
+        		} 
+        		
+        		
+        	}
+        	for($a=0;$a<count($arr_skill);$a++){
+        		$source=$arr_skill[$a]['tag'];
+        		$taglist = explode(',',$source);
+        		
+        		
+        		for($index=0;$index<count($taglist);$index++){ 
+        			
+        			if($selecttag[$i]['id']==$taglist[$index]){
+							$m++;
+							//dump($arr_skill[$a]['title']);
+        			}
+        			
+        		} 
+        		
+        		
+        	}
+        	//dump($m);
+        	$total=$m+$n;
+        	//dump($total);
+            echo "<a href='__ROOT__/Tagseach/index/tagid/".$selecttag[$i]['id']."' title='".$total."个话题'><span>".$selecttag[$i]['tagname']."</span></a>";
+        }
+
+		?>
+		</div>
+	</div>
+	<div class="box-title">最近编辑</div>
+	<div class="fengexian"></div>
+	<div class="file-all">
+	<volist name='updatemood' id="mood">
+		<div><a href='mood/{$mood[id]}'>{$mood['title']}</a> 　　<span class='update'>最后修改于：{$mood['updatetime']}</span></div>
+	</volist>
+	<volist name='updateskill' id="skill">
+		<div><a href='skill/{$skill[id]}'>{$skill['title']}</a> 　　<span class='update'>最后修改于：{$skill['updatetime']}</span></div>
+	</volist>
+	</div>
+	<div class="box-title">最近一月内的热评文章</div>
+	<div class="fengexian"></div>
+	<div class="file-all">
+	<!-- 多说热评文章 start -->
+	<div class="ds-top-threads" data-range="monthly" data-num-items="4" ></div>
+<!-- 多说热评文章 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+	</div>
+	<div class="box-title">最新的评论</div>
+	<div class="fengexian"></div>
+	<div class="file-all">
+	<!-- 多说最新评论 start -->
+	<div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+<!-- 多说最新评论 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+	</div>
+	
+ </div>
+</div>
+  <include file="Public:footer" />
+ </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<layout name='frame_layout'/>
+
+<form method='post' action='__CONTROLLER__/apFriends'> 
+
+	<br/>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">邻居：</button>
+		</span>
+
+		<input class="form-control" type="text" value="" name="name" placeholder='' autofocus/>
+
+	</div>
+
+	<br/>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">标语：</button>
+		</span>
+		<input class="form-control" type="text" value="" name="msg" placeholder='' />
+	</div>
+
+	<br/>
+
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">网址：</button>
+		</span>
+		<input class="form-control" type="text" value="" name="lin" placeholder='http://' />
+
+	</div>
+
+	<br/>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">logo：</button>
+		</span>
+		<input class="form-control" type="text" value="" name="log" placeholder='http://' />
+
+	</div>
+	<br/>
+
+<input type="hidden" value="" name='id' />
+	<br/>
+	<input type="submit" value="提交" name="submit" class="btn btn-large btn-block btn-primary" />
+	<input type="reset" value="重置" name="" class="btn btn-large btn-block btn-defualt" />
+
+</form>

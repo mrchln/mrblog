@@ -1,0 +1,110 @@
+<layout name='frame_layout'/>
+<script type="text/javascript">$('#myModal').modal(options);</script>
+<br/>
+
+<form method="post">
+	<div class="panel">
+		<div class="panel-heading">请选择查询模块(默认第一个)：</div>
+		<div class="panel-body">
+			<foreach name="class" item="clas" >
+				<div class="tag">
+					<a href="__CONTROLLER__/adminArticle/ename/{$clas.ename}">
+						<input class="btn btn-default" type="button" value="{$clas.classify}" class="button gray"></a>
+				</div>
+			</foreach>
+		</div>
+	</div>
+	<br/>
+	<div class="panel">
+		<div class="panel-heading">文章管理</div>
+		<div class="panel-body">
+			<div id="seach">
+				<div class="col-xs-3">
+					<div class="input-group">
+						<span class="input-group-addon"> <i class="icon-search"></i>
+						</span>
+						<input class="form-control" type="text" name="seach" value="" id="title_input" placeholder="可按标题，回车查询" autofocus></div>
+					<input style="display:none" type="submit" name="" value=""></div>
+			</div>
+		</form>
+		<br/>
+		<br/>
+		<br/>
+		<table cellspacing="0" class="table table-bordered">
+			<thead>
+				<tr id="touys">
+
+					<td>作者</td>
+					<td>标题</td>
+					<td>模块</td>
+					<form method="post" >
+						<td>
+							<input class="btn btn-default" type="submit" name="time" value="时间▽" title='按最早排序' />
+						</td>
+					</form>
+					<td  align="center" colspan="2">操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<foreach name="selectArticle" item="sel" >
+					<tr>
+
+						<form method="post" >
+							<td>
+								<input type="submit" class="btn btn-default" name="author" value="{$sel.author}" title='按作者查询' />
+							</td>
+						</form>
+						<td>
+							<a href="__ROOT__/mood/detailed/id/{$sel.id}" target="bank" title='跳转到该文章'>{$sel.title}</a>
+						</td>
+						<form method="post" >
+							<td>
+								<input type="submit" class="btn btn-default" name="classify" value="{$sel.ename}" title='按标签查询' />
+							</td>
+						</form>
+						<form method="post" >
+							<td>
+								<input class="btn btn-default" type="submit" name="month" value="{$sel.now}" title='按月查询' />
+							</td>
+						</form>
+						<form method="post" name="" action="__CONTROLLER__/addArticle">
+							<td>
+
+								<a href="__CONTROLLER__/addArticle?id={$sel.id}" data-type="iframe" data-toggle="modal" class="btn btn-primary"> <i class="icon-edit"></i>
+									编辑
+								</a>
+							</form>
+						</td>
+						
+						<td>
+						<form method="post" name="" action="__CONTROLLER__/del">
+							
+											
+											<a href="__CONTROLLER__/del?id={$sel.id}" onclick="return delsure(this)"  class="btn btn-danger"><i class="icon-remove"></i>删除</a>
+
+											
+									
+								
+
+										
+						</form>
+						</td>
+					
+
+					</tr>
+				</foreach>
+			</tbody>
+
+		</table>
+		<div class="fenye">{$page}</div>
+		<br/>
+		<div id="container">
+			<div id="load"></div>
+		</div>
+		<div id="page"></div>
+		<hr />
+		<div id="ps">
+			友情提示：管理员可编辑、删除文章，可进行模糊查询如：标题、标签、内容，点击相应的标签可进行快速查询，点击标题可跳转到该文章
+		</div>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<div id ="daohang">
+
+	<nav class="navbar navbar-default" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="javascript:void(0)">Mrling | 后台管理</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav collapsed">
+				<li>
+					<a href="javascript:window.open('../../../index.php')"> <i class="icon-home"></i>
+						首页
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)"> <i class="icon-user"></i>
+						<?php echo $_SESSION['author']."(".$_SESSION['username'].")" ?></a>
+				</li>
+				<li>
+					<a href="http://mrling.duoshuo.com/admin/tools/">
+						<i class="icon-comment"></i>
+						多说
+					</a>
+				</li>
+				<li>
+					<a href="__CONTROLLER__/change_login">
+						<i class="icon-undo"></i>
+						切换账号
+					</a>
+				</li>
+				<li>
+					<a href="__CONTROLLER__/logout">
+						<i class="icon-reply"></i>
+						退出
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+						更多 <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="javascript:void(0)">登录日志</a>
+						</li>
+						<li>
+							<a href="http://mrling.duoshuo.com/admin/tools/">评论管理</a>
+						</li>
+						<li>
+							<a href="http://tongji.baidu.com/hm-web/welcome/ico?s=bd0e4dff3b61b7c40da7910c165d6370">网站统计</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">……</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

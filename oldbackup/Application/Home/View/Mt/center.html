@@ -1,0 +1,38 @@
+<layout name="Mtlayout"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+      <meta content="yes" name="apple-mobile-web-app-capable">
+      <meta content="black" name="apple-mobile-web-app-status-bar-style">
+      <meta name="format-detection" content="telephone=no, email=no">
+      	
+<import type='css' file="MT.css.center" />
+<import type="css" file="MT.css.detailed" />
+<body>
+<div id="container"> 
+<div id="nowLoation">{$locationArr['__CONTROLLER__']}</div>
+<div id="container_box">
+
+   <section>
+      <div class="calssTitle">
+          <h2>心情文章</h2>
+      </div>
+      <div id="moodContent">
+        <volist name="list" id="vo">
+         <a class="mt-ar-link" href="__APP__/home/Mt/detailed/id/{$vo.id}"><div class="contentIndex">{$vo.title}
+         	<div class="info"> <span class="resource">{$vo.author}</span> <span class="icon type1"></span> {$time.time}</div>
+         	
+         </div>
+         </a>
+        </volist>
+      </div>
+      </section>
+    
+<div class="fenye"> 
+{$page}
+ </div>  
+ <br/>
+
+ </div>
+
+</div> 
+ <include file="Mt:footer" />
+ </body>

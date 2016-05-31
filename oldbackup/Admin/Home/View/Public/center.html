@@ -1,0 +1,44 @@
+
+<div id="container">
+    <div id="container_box">
+        <volist name="list" id="vo">
+            <div id="center_centent">
+                <div class="box">
+                    <div id="content">
+                        <a href="__APP__/home/index/detailed/id/{$vo.id}">{$vo.content}</a>
+                    </div>
+                </div>
+
+            </div>
+            <div id="author_time" >
+                <span>{$vo.author}</span>
+                <span>{$vo.time}</span>
+                "
+                <a id="title_a" href="__APP__/home/index/detailed/id/{$vo.id}">{$vo.title}</a>
+                "
+                <span class="ds-thread-count" data-thread-key="{$vo.id}" data-count-type="comments"></span>
+                <span>阅读：({$vo.readed})</span>
+                <!-- 多说js加载开始，一个页面只需要加载一次 -->
+                <script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+                <!-- 多说js加载结束，一个页面只需要加载一次 -->
+                <div id="center_content_more">
+                    <a href="__APP__/home/index/detailed/id/{$vo.id}">继续阅读>></a>
+                </div>
+            </div>
+        </volist>
+        <div class="fenye">{$page}</div>
+    </div>
+    <div>
+        <include file="Index:friends" />
+    </div>
+    <include file="Public:footer" />
+</div>

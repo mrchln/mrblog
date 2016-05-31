@@ -1,0 +1,39 @@
+<html lang="zh-CN">
+<head>
+<title>{$title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"><!-- ie兼容模式 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="__ROOT__/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/dist/css/docs.min.css">
+<link rel="stylesheet" type="text/css" href="__ROOT__/script/css/journal.css">
+
+
+  </head>
+  <!-- ... -->
+
+  <body>
+  {__CONTENT__}
+
+
+
+<script type="text/javascript" src="__ROOT__/script/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="__ROOT__/script/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="__ROOT__/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="__ROOT__/script/js/jquery.pin.min.js"></script>
+<script type="text/javascript">
+//var navigation = responsiveNav("#nav");//启用响应式导航
+
+$(document).ready(function(){
+    $('.flexslider').flexslider({
+        directionNav: true,
+        pauseOnAction: false
+    });
+
+    
+})
+
+</script>
+
+  </body>
+  </html>

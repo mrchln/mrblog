@@ -1,0 +1,55 @@
+<layout name='frame_layout'/>
+<layout name='frame_layout'/>
+<form method='post'>
+
+	<br/>
+	<volist name='select' id='sel'>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">用户名</button>
+		</span>
+
+		<input class="form-control" type="text" value="{$sel['username']}" name="user" placeholder='请输入用户名' autofocus/>
+
+	</div>
+
+	<br/>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">作者</button>
+		</span>
+		<input class="form-control" type="text" value="{$sel['author']}" name="name" placeholder='请输入作者名称' />
+	</div>
+
+	<br/>
+
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">权限：</button>
+		</span>
+		<input class="form-control" type="text" value="{$sel['fig']}" name="afig" placeholder='请输入权限0、1、2' />
+
+	</div>
+
+	<br/>
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">新密码：</button>
+		</span>
+		<input class="form-control" type="text" value="" name="newpwd" placeholder='请输入新密码' />
+
+	</div>
+	<br/>
+
+	<div class="input-group">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button">确认密码：</button>
+		</span>
+		<input class="form-control" type="text" value="" name="repwd" placeholder='请输入确认密码' />
+	</div>
+	<input type="hidden" value="{$sel.id}" name='id' />
+	<br/>
+	<input type="submit" value="提交" name="submit" class="btn btn-large btn-block btn-primary" />
+	<input type="reset" value="重置" name="" class="btn btn-large btn-block btn-defualt" />
+</volist>
+</form>

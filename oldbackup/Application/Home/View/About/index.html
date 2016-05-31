@@ -1,0 +1,67 @@
+<layout name='layout'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<title></title>
+<import type="css" href="css.about" />
+</head>
+<body>
+<main>
+<div id="message">
+<div id="message_box">
+<div id="logo-about"></div>
+<div id="title">不悔的青春，永恒的梦想</div>
+<foreach name="about" item="me" >
+<div class="guanyu">
+<div id="box_shor">
+
+<div class="box">
+<fieldset>  
+<legend>励志名言</legend>  
+{$me.gxqm|html_entity_decode}
+</fieldset>
+</div>
+
+
+<div class="box">
+<fieldset>  
+<legend>关于博主</legend>  
+{$me.grgc|html_entity_decode}
+</fieldset>
+</div>
+
+
+<div class="box">
+<fieldset>  
+<legend>QQ</legend>  
+{$me.qq|html_entity_decode}
+</fieldset>
+</div>
+
+
+<div class="box">
+<fieldset>  
+<legend>联系电话</legend>  
+{$me.phone|html_entity_decode}
+</fieldset>
+</div>
+
+<div class="box">
+<fieldset>  
+<legend>联系地址</legend>  
+<address>{$me.adress|html_entity_decode}</address>
+</fieldset>
+</div>
+</div>
+
+</div>
+</foreach>
+ <include file="Index:gotop" />
+
+</div>
+ <include file="Public:footer" />
+</div>
+</main>
+</body>
+</html>

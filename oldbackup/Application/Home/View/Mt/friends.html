@@ -1,0 +1,29 @@
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+	  <meta content="yes" name="apple-mobile-web-app-capable">
+	  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	  <meta name="format-detection" content="telephone=no, email=no">
+<import type="css" file="css.friends"/>
+<div id="lanmu_box">
+<div>
+<span>友好邻居:</span>
+
+
+<span class="lj">
+<foreach name="friends" item="fs" >
+<a href="javascript:window.open('{$fs.link}')" title="{$fs.message}">{$fs.nearly}</a>
+</foreach>
+</span>
+
+<br />
+<span>图片链：</span>
+<br />
+<br />
+<span class="lj">
+<foreach name="friends_logo" item="fs" >
+<a href="javascript:window.open('{$fs.link}')" title="{$fs.message}"><img src="{$fs.logo}" /></a>
+</foreach>
+</span>
+</div>
+
+</div>
+

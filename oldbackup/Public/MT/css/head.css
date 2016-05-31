@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+ font-family:"微软雅黑";
+}
+html{font-size: 14px;}
+a.mt-ar-link:visited{color: #888}
+a.mt-ar-link{color: #1b1b1b;font-size: 1.25rem;    font-weight: 400;}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrap-page-webapp{
+	background: #dee7ee;
+	top: 0;
+    position: absolute;
+    width: 100%;
+}
+.wrap-page {
+  -webkit-overflow-scrolling: touch;
+  max-width: 768px;
+    margin: 0 auto;
+    background: #FFF;
+    position: relative;
+}
+
+.fixed-bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 940;
+}
+
+header#daohang_box{ text-align: center; width: 100%;height: 4rem;}
+header#daohang_box div:first-child{ position:relative;float: left;transition:background 0.5s,color 1s; padding: 10px 10px 10px ; text-align: center;}
+header#daohang_box div:last-child{ position:relative;float: right;transition:background 0.5s,color 1s; padding: 10px 10px 10px ; text-align: center;}
+header#daohang_box a{color: #FFF; height: 20px; font-size: 1.2rem;    font-weight: 400;}
+
+div.calssTitle{border-bottom: 1px solid #EAEAEA; color: #277de2; padding: 10px 10px 10px ;  }
+div.contentIndex:hover{border-bottom: 1px solid #EAEAEA;border-top: 1px solid #EAEAEA;}
+div.contentIndex{ padding: 10px 15px 0px ;}
+div.contentIndex a{
+	color: #000;
+	font-weight: 400;
+	
+    }
+div.contentIndex .info{
+	font-size: 11px;
+    color: #ababab;
+    padding: 4px 0 4px;
+}
+div.calssTitle span a{float: right; font-size: 1rem;color: #277de2;    padding: 5px 5px 5px;}
+h4{color: #000}
+.shadeDiv{
+    width: 100%;
+    height: 3.5rem;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    background: rgba(255, 255, 255, 0.5)!important;
+    /* z-index: -1; */
+    position: absolute;
+    /*background-color: #3399FF;*/
+    top: 0;
+    left: 0;
+}
+ .message{height: 300px;background-image: url(../../MT/images/message1.jpg);background-size:cover;}
+ .index{height: 300px;background-image: url(../../MT/images/neighbors.jpg);background-size:cover;}
+ 
+.contentIndex #threads{
+	margin-left: 1.4rem;
+}
+.contentIndex #threads:after{
+content: '';
+    display: inline-block;
+    width: .6rem;
+    height: .8rem;
+    background: url(../../MT/images/pinglun.png) no-repeat;
+    background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+    margin-left: .2rem;
+    vertical-align: -.2rem;
+}
+
+
+

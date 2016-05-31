@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>时间之轴 | 汉服青史</title>
+<link rel="stylesheet" type="text/css" href="__ROOT__/Public/timeaxis/css/history.css">
+<script type="text/javascript" src="__ROOT__/Public/timeaxis/js/jquery.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/timeaxis/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="__ROOT__/Public/timeaxis/js/jquery.easing.js"></script>
+
+</head>
+<body>
+
+<div id="arrow">
+	<ul>
+		<li class="arrowup"></li>
+		<li class="arrowdown"></li>
+	</ul>
+</div>
+
+<div id="history">
+
+	<div class="title">
+		<h2>博客历程</h2>
+		<div id="circle">
+			<div class="cmsk" title="返回首页"></div>
+			<div class="circlecontent" >
+				<div thisyear="" class="timeblock" >
+					<span class="numf"></span>
+					<span class="nums"></span>
+					<span class="numt"></span>
+					<span class="numfo"></span>
+					<div class="clear"></div>
+				</div>
+				<div class="timeyear">YEAR</div>
+			</div>
+			<a href="http://{$HTTP_HOST}" class="clock"></a>
+		</div>
+	</div>
+	
+	<div id="content">
+		<ul class="list">
+		<volist name='data' id='vo'>
+			<li>
+			
+				<div class="liwrap">
+					<div class="lileft">
+						<div class="date">
+							<span class="year">{$vo.time|strtotime|date="Y",###}</span>
+							<span class="md">{$vo.time|strtotime|date="m,d",###}</span>
+						</div>
+					</div>
+					
+					<div class="point"><b></b></div>
+					
+					<div class="liright">
+						<div class="histt"><a href="#">{$vo['title']}</a></div>
+						<div class="hisct">{$vo['content']}</div>
+					</div>
+				</div>
+			
+			</li>
+			</volist>
+			
+		</ul>
+	</div>
+<div class="clearFloat"> </div>
+<include file="Public:footer" />
+</div>
+
+    	<script type="text/javascript">
+    		window.onload = function(){
+					//var Footer = document.getElementsByClassName("Footer");
+					$(".Footer").css('color','#999');
+					$(".Footer").find("a").css('color','#999');
+				}
+    	</script>
+<script type="text/javascript" src="__ROOT__/Public/timeaxis/js/history.js"></script>
+</body>
+</html>

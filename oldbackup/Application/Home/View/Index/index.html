@@ -1,0 +1,118 @@
+﻿<base target="_blank">
+<layout name='layout' />
+<import file="showimages/js/slides" />
+<import type="css" file="showimages/css/global" />
+<script type="text/javascript">
+	$(function() {
+		//alert(1);
+		indextime();
+		imgmsg();
+		//music---start
+		var n = document.getElementsByTagName("audio")[0];
+		n.loop = true;
+		n.addEventListener("ended", function() {
+			$(".xl_music img").removeClass("music_active");
+			$(".xl_music img").attr("src", "__ROOT__/Public/images/music-stop.png")
+		}, false);
+		document.getElementsByTagName("audio")[0].play();
+		$(".xl_music").live("click", function() {
+				var o = $(this).children("img");
+				if (o.hasClass("music_active")) {
+					$("audio")[0].pause();
+					o.attr("src", "__ROOT__/Public/images/music-stop.png");
+					o.removeClass("music_active")
+				} else {
+					o.addClass("music_active");
+					$("audio")[0].play();
+					o.attr("src", "__ROOT__/Public/images/music.png")
+				}
+			})
+			//music--end
+		winheight = $(window).height();
+		if (winheight > 768) $(".Footer").css({
+			"position": "fixed",
+			"margin-right": "-400px",
+			"right": "50%",
+			"width": "800px",
+			"bottom": "0px"
+		});
+	})
+</script>
+<style>
+	.xl_music {
+		position: absolute;
+		z-index: 20;
+		top: 0;
+		right: 3%;
+		width: 42px;
+		height: 42px;
+	}
+	
+	.xl_music img {
+		width: 42px;
+		padding-top: 8px;
+	}
+</style>
+<main>
+<div id="index-container">
+	<div id="index-container-box">
+
+		<div id="index-center-centent">
+		<section>
+			<div class="box-new">
+				<div class="img-box">
+					<div id="container-img">
+						<div id="example">
+
+							<div id="slides">
+								<volist name="article_map" id='map'>
+									<div class="info" title=""></div>
+									<div class="slides_container">
+										<a href="__ROOT__/Mapshow" title=""><img src="{$map['link']}" width="570" height="300" alt="1" title="{$map['title']}"></a>
+									</div>
+								</volist>
+								<a href="#" class="prev"><img src="__ROOT__/Public/showimages/img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+								<a href="#" class="next"><img src="__ROOT__/Public/showimages/img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			</section>
+			<section>
+			<div class="box-new">
+
+				<div class="tag">最新阅读</div>
+
+				<volist name='article_mood' id='mood'>
+					<div class="title-skill"><a href="__ROOT__/Mood/{$mood.id}">{$mood.title}</a>
+						<div class="time">{$mood.now|strtotime|time_tran}</div><input type="hidden" value="{$mood.now|strtotime|date='Y',###}" id="year"><input type="hidden" value="{$mood.now|strtotime|date='m',###}" id="month"><input type="hidden" value="{$mood.now|strtotime|date='d',###}"
+							id="date"></div>
+				</volist>
+				<div class="more"><a href='__ROOT__/mood'>more</a></div>
+
+				<div class="tag">最新分享</div>
+				<volist name='article_skill' id='skill'>
+					<div class="title-skill"><a href="__ROOT__/Skill/{$skill['id']}">{$skill.title}</a>
+						<div class="time">{$skill.now|strtotime|time_tran}</div><input type="hidden" value="{$skill.now|strtotime|date='Y',###}" id="year"><input type="hidden" value="{$skill.now|strtotime|date='m',###}" id="month"><input type="hidden" value="{$skill.now|strtotime|date='d',###}"
+							id="date"></div>
+				</volist>
+				<div class="more"><a href='__ROOT__/skill'>more</a></div>
+			</div>
+			</section>
+		</div>
+
+	</div>
+	<div class="clearFloat"> </div>
+	<include file="Public:footer" />
+
+</div>
+</main>
+<div class="xl_music">
+	<img class="music_active" src="__ROOT__/Public/images/music.png" />
+	<div style="display:none;">
+		<audio autoplay="autoplay" src="__ROOT__/Public/music/bg.mp3"></audio>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+﻿<section>
+<div id="touxiangbox">
+	<a href="__APP__" title="回到首页">
+		<div class="touxiang"></div>
+	</a>
+
+</div>
+<div class='head-message'>努力吧，至少可以离梦想近一些。
+</div>
+</section>
+<nav>
+	<div id="daohang_box">
+		<foreach name='modular' item='mod'>
+			<a href="__ROOT__/{$mod['ename']}">
+				<li>{$mod['classify']}</li>
+			</a>
+			<input type="hidden" name="ename" value="{$mod['ename']}" />
+		</foreach>
+		<volist name='navigation' id='head'>
+			<a href="__ROOT__/{$head['ename']}">
+				<li>{$head['name']}</li>
+			</a>
+			<input type="hidden" name="ename" value="{$head['ename']}" />
+		</volist>
+		<div id='navdh'></div>
+	</div>
+
+</nav>
+<script>$(function(){navlink();})</script>

@@ -1,0 +1,25 @@
+<layout name='index_layout'/>
+<div id="admin">
+	<div class="panel">
+		<div class="panel-heading"> <strong>博客管理</strong>
+		</div>
+		<div class="panel-body">
+
+			<div id="left">
+				<include file='Index:left'/>
+			</div>
+			<iframe src="__CONTROLLER__/addArticle.html" id="iframepage" name="editor" width="100%" scrolling="yes" frameborder="0" onLoad="iFrameHeight()"  ></iframe>
+
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript" language="javascript"> 
+function iFrameHeight() { 
+var ifm= document.getElementById("iframepage"); 
+var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument; 
+if(ifm != null && subWeb != null) { 
+ifm.height = subWeb.body.scrollHeight; 
+} 
+} 
+</script>

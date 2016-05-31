@@ -1,0 +1,7 @@
+
+div#boxrad{width:720px; padding:10px 10px 10px; border:1px solid #CCC; display: inline-block;}
+div.box{ padding:20px 20px 20px;}
+div.guanyu #box_shor{  position:relative;}
+div#boxrad span{ position:relative; height:20px; top:-20px;  width:4em; color:#09F}
+fieldset{border: 0px solid #cccccc;padding:10px 10px 10px; }
+legend{color:#09F }

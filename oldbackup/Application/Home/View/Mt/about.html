@@ -1,0 +1,89 @@
+<layout name="Mtlayout"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+	  <meta content="yes" name="apple-mobile-web-app-capable">
+	  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	  <meta name="format-detection" content="telephone=no, email=no">
+<title>关于|MrLing</title>
+<import type="shortcut icon" href="images/title.png" />
+
+</head>
+<body>
+<foreach name="about" item="me" >
+
+<div class="guanyu">
+<div id="nowLoation">{$locationArr['__CONTROLLER__']}</div>
+<div id="box_shor">
+<div class="box">
+<div id="boxrad">
+<span>个性签名</span>
+<div id="gxqm_c">{$me.gxqm}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>个人感触</span>
+<div>{$me.grgc}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>网站历程</span>
+<div>{$me.grjl}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>QQ</span>
+<div>{$me.qq}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>姓名</span>
+<div>{$me.name}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>联系电话</span>
+<div>{$me.phone}</div>
+</div>
+</div>
+
+<div class="box">
+<div id="boxrad">
+<span>联系地址</span>
+<div>{$me.adress}</div>
+</div>
+</div>
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="-321" data-title="关于博主" data-url="http://mrcln.com/forme.php"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+   <include file="Mt:footer" />
+ </div>
+</div>
+</foreach>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<layout name='layout'/>
+<import type="css" file="css.friends"/>
+<div id="message">
+<div id="message_box">
+<div id="logo-neighbors"></div>
+<div id="title">心灵的秋海棠，万年常青</div>
+<div class="box">
+<fieldset>  
+<legend>友好邻居</legend>
+<span class="lj">  
+<foreach name="friends" item="fs" >
+<a href="{$fs.link}" title="{$fs.message}">{$fs.nearly}</a>
+</foreach>
+</span>
+</fieldset>
+</div>
+<div class="box">
+<fieldset> 
+<legend>图片链</legend>
+<span class="lj">
+<foreach name="friends" item="fs" >
+<a href="{$fs.link}" title="{$fs.message}"><img src="{$fs.logo}" /></a>
+</foreach>
+</span>
+</fieldset>
+</div>
+
+<div id="linju_require">
+<div class="box">
+<fieldset> 
+<legend>邻居说明</legend>
+<ol>
+<li>1.博客内容健康，且无广告</li>
+<li>2.能正常访问</li>
+<li>3.域名长期使用，尽量不更改，博客内容常更新</li>
+<li>4.下方评论申请，申请格式：站点名称+域名+邮箱+网站简介</li>
+<li>本站信息：汉服青史，分享心情记事，学习笔记的个人博客</li>
+<li>网站地址：http://{$HTTP_HOST}</li>
+<li>网站Logo：http://{$HTTP_HOST}/images/logo.gif</li>
+<li><a href="http://{$HTTP_HOST}"><img src="__ROOT__/Public/images/logo.gif" width="88" height="31" /></a></li>
+<li><a href="http://check.links.cn/?weburl=hanfuqingshi.com&bshow=1" target="_blank" title="友情链接检查">友情链接检查</a></li>
+</ol>
+</fieldset>
+</div>
+</div>
+
+<div id="ds">
+ <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="-100" data-title="邻居" data-url="http://{$HTTP_HOST}/neighbors"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"mrling"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</div>
+</div>
+<include file='Public:footer'/>
+</div>
