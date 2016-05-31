@@ -17,6 +17,8 @@ color: #1b1b1b;
 }
 div#duoshuo{}
 div#zuozhe{color:#666; padding:0px 20px 0px;}
+div#boxcontent_box img{ width:100%; }
+div#boxcontent_box video{display:none;}
 div#boxcontent_box{ position:relative; }
 div#boxcontent_box embed{max-width: 100%;max-height: 300px;}
 div#befor a,#next a{ color: #1b1b1b;}
